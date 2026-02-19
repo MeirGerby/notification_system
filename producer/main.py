@@ -1,5 +1,9 @@
 import json
 
-with open(r'data\border_alerts.json') as file:
-    data = json.load(file)
-    print(data)
+
+class ReadData:
+    def get_notification_data(self, path):
+        with open(path) as file:
+            data = json.load(file)
+            return data
+
