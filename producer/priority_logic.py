@@ -33,4 +33,6 @@ class Priority:
     def __init__(self, notifications: List[Data]):
         self.notifications = notifications 
 
+    def check_weapons_count(self, notification: Data) -> bool:
+        return notification.weapons_count > 0
     
