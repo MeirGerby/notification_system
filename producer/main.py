@@ -9,6 +9,11 @@ class ReadData:
             data = json.load(file)
             return data
 
-data = ReadData() 
-notification = data.get_notification_data(PATH)
-print(notification)
+def main():
+    data = ReadData() 
+    notification = data.get_notification_data(PATH)
+    print(notification)
+    return notification
+
+if __name__ == "__main__":
+    main()
