@@ -1,6 +1,10 @@
 from pymongo import MongoClient
 
-from core.config import settings
+MONGO_INITDB_DATABASE: str =  'pizza_orders'
+COLLECTION_NAME: str = 'orders' 
+
+# MONGO_URL = "mongodb://mongo:27017"
+MONGO_URL: str = "mongodb://localhost:27017/"
 class MongoDB():
     _instance = None
     _connection = None
@@ -13,13 +17,13 @@ class MongoDB():
     @staticmethod    
     def _get_connection():
         if MongoDB._connection is None:
-            MongoDB._connection = MongoClient(settings.MONGO_URL)
+            MongoDB._connection = MongoClient(MONGO_URL)
             print('Connected to MongoDB...')
         return MongoDB._connection
 
     @staticmethod
     def _db(client):
-        db = client[settings.MONGO_INITDB_DATABASE]
+        db = client[MONGO_INITDB_DATABASE]
         return db 
     
     @staticmethod

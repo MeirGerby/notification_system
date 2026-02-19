@@ -17,7 +17,11 @@ def main():
         notifications_list.append(notification)
     proiriry = Priority(notifications_list)
     for p in proiriry:
-        REDIS_CONNECTION.set(p.priority ,json.dumps(p)) # type: ignore
+        if p.priority == 'URGENT'
+            REDIS_CONNECTION.lpush(p.priority ,json.dumps(p)) # type: ignore
+
+        if p.priority == 'NORMAL'
+            REDIS_CONNECTION.lpush(p.priority ,json.dumps(p)) # type: ignore
     return notifications
 
 if __name__ == "__main__":
