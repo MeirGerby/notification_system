@@ -43,7 +43,11 @@ class Priority:
     
     def check_people_count(self, notification: Data) -> bool:
         """check if there is 8 poeple or less"""
-        return notification.people_count >= 8 
+        return notification.people_count >= 8
+     
+    def check_vehicle_type(self, notification: Data) -> bool:
+        """check if the vehicle_type is 8 truck"""
+        return notification.vehicle_type == 'truck'
     
-    
+
     
