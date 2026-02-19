@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
-MONGO_INITDB_DATABASE: str =  'pizza_orders'
-COLLECTION_NAME: str = 'orders' 
+MONGO_INITDB_DATABASE: str =  'data'
+COLLECTION_NAME: str = 'notification' 
 
 # MONGO_URL = "mongodb://mongo:27017"
 MONGO_URL: str = "mongodb://localhost:27017/"
@@ -32,3 +32,5 @@ class MongoDB():
         db = MongoDB._db(conn)
         coll = db[collection_name]
         return coll
+
+MONGO_COLLECTION = MongoDB.get_collection(MONGO_INITDB_DATABASE) 
