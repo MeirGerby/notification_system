@@ -31,4 +31,6 @@ class Data:
 
 class Priority:
     def __init__(self, notifications: List[Data]):
-        self.notifications = notifications
+        self.notifications = notifications 
+
+    
