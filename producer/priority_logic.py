@@ -1,4 +1,5 @@
 import json
+from typing import List
 
 class ReadData:
     def get_notification_data(self, path) -> list:
@@ -27,4 +28,7 @@ class Data:
             vehicle_type: {self.vehicle_type}, 
             distance_from_fence_m: {self.distance_from_fence_m}, 
             visibility_quality: {self.visibility_quality}'''
-# class Priority:
+
+class Priority:
+    def __init__(self, notifications: List[Data]):
+        self.notifications = notifications
