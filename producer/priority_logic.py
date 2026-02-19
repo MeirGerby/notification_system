@@ -89,7 +89,10 @@ class Priority:
             elif self._check_vehicle_and_people(n):
                 self._add_priority_field(n, urgent)
             else: 
-                self._add_priority_field(n, normal)
+                self._add_priority_field(n, normal) 
+    
+    def __iter__(self):
+        return iter(self.notifications)
                 
 
-    
+
