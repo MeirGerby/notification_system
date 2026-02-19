@@ -38,5 +38,12 @@ class Priority:
         return notification.weapons_count > 0
     
     def check_distance_from_fence_m(self, notification: Data) -> bool:
-        """check if the distance is less than 50 meter"""
-        return notification.distance_from_fence_m >= 50
+        """check if the distance is 50 meter less than"""
+        return notification.distance_from_fence_m <= 50
+    
+    def check_people_count(self, notification: Data) -> bool:
+        """check if there is 8 poeple or less"""
+        return notification.people_count >= 8 
+    
+    
+    
