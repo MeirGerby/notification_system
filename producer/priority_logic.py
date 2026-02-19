@@ -8,7 +8,7 @@ class ReadData:
             data = json.load(file)
             return data
 class Data:
-    def __init__(self, border, zone, timestamp, people_count, weapons_count, vehicle_type, distance_from_fence_m, visibility_quality):
+    def __init__(self, border, zone, timestamp, people_count, weapons_count, vehicle_type, distance_from_fence_m, visibility_quality, priority=None):
         self.border  = border
         self.zone  = zone
         self.timestamp  = timestamp
@@ -16,7 +16,8 @@ class Data:
         self.weapons_count  = weapons_count
         self.vehicle_type  = vehicle_type
         self.distance_from_fence_m  = distance_from_fence_m
-        self.visibility_quality  = visibility_quality
+        self.visibility_quality  = visibility_quality 
+        self.priority = priority
 
     def __repr__(self): 
         return f'''
@@ -46,8 +47,25 @@ class Priority:
         return notification.people_count >= 8
      
     def check_vehicle_type(self, notification: Data) -> bool:
-        """check if the vehicle_type is 8 truck"""
+        """check if the vehicle_type is truck"""
         return notification.vehicle_type == 'truck'
     
+    def check_distance_and_people(self, notification: Data) -> bool:
+        """check if the distance is 150 or less and people count is 4 or more poeple"""
+        return notification.distance_from_fence_m <= 150 and notification.people_count >= 4 
+        
+    def check_vehicle_and_people(self, notification: Data) -> bool:
+        """check if the vehicle_type is jeep and people count is 3 or more poeple"""
+        return notification.vehicle_type == 'jeep' and notification.people_count >= 3 
+    
+    
+    def add_priority_field(self, priority, notification: Data):
+        if priority == 'URGENT':
+            notification.priority = 'URGENT'
+        elif priority == 'NORMAL':
+            notification.priority = 'NORMAL' 
+
+        
+
 
     
