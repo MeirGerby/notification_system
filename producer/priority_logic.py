@@ -1,7 +1,8 @@
 import json
 
 class ReadData:
-    def get_notification_data(self, path):
+    def get_notification_data(self, path) -> list:
+        """read a json file and return a list object"""
         with open(path) as file:
             data = json.load(file)
             return data
