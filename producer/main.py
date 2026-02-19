@@ -1,13 +1,9 @@
-import json
-import os 
+# import os 
+
+from priority_logic import ReadData
 
 # PATH = os.getenv('PATH', r'data\border_alerts.json') 
-PATH = r'data\border_alerts.json' 
-class ReadData:
-    def get_notification_data(self, path):
-        with open(path) as file:
-            data = json.load(file)
-            return data
+PATH = r'data\border_alerts.json'
 
 def main():
     data = ReadData() 
