@@ -1,16 +1,18 @@
 # import os 
 
-from priority_logic import ReadData
+from priority_logic import ReadData, Data
 
 # PATH = os.getenv('PATH', r'data\border_alerts.json') 
 PATH = r'data\border_alerts.json'
 
 def main():
     data = ReadData() 
-    notification: list = data.get_notification_data(PATH)
+    notifications: list = data.get_notification_data(PATH)
     # print(notification)
-    
-    return notification
+    for n in notifications:
+        notification = Data(**n)
+        print(notification)
+    return notifications
 
 if __name__ == "__main__":
     main()

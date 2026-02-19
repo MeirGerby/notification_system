@@ -17,5 +17,14 @@ class Data:
         self.distance_from_fence_m  = distance_from_fence_m
         self.visibility_quality  = visibility_quality
 
-
+    def __repr__(self): 
+        return f'''
+            border: {self.border}, 
+            zone: {self.zone}, 
+            timestamp: {self.timestamp}, 
+            people_count: {self.people_count}, 
+            weapons_count: {self.weapons_count}, 
+            vehicle_type: {self.vehicle_type}, 
+            distance_from_fence_m: {self.distance_from_fence_m}, 
+            visibility_quality: {self.visibility_quality}'''
 # class Priority:
